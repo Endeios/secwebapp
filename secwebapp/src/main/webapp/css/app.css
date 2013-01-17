@@ -1,0 +1,41 @@
+.zona{
+	background-color:gray;
+	width: 5em;
+	height: 5em;
+	float:left;
+	position: relative;
+	left:5em;
+	border-radius:1em;
+	box-shadow:2px 2px 2px black;
+	padding:1.5em;
+}
+
+.active{
+	background-color: green;
+}
+
+.inactive{
+	background-color: yellow;
+}
+
+.alarm{
+	background-color: red;
+}
+
+.panel{
+	background-color:gray;
+	width: 15em;
+	height: 5em;
+	position: relative;
+	left:5em;
+	padding:1em;
+	clear:both;
+	border-radius:1em;
+	box-shadow:2px 2px 2px black;
+}
+
+div{
+	margin:1em;
+}
+
+
