@@ -219,13 +219,15 @@
 						},
 						addEvent : function(event, zone) {
 							console.log(event);
+							var that = this;
 							console.log(zone);
 							var newEvent = new LogEntry({
 								zone : zone.$el[0].id + "",
 								event : "Intrusione"
 							});
-							newEvent.save();
-							this.$el.trigger("reloadList");
+							newEvent.save(null,{success:function(data){
+								that.$el.trigger("reloadList");
+							}});
 
 						},
 						reloadList : function(event) {
