@@ -20,10 +20,11 @@
  	<!-- COSE BEAN -->
  	<context:property-placeholder location="classpath:db.properties"/>
  	<context:annotation-config/>
- 	<!-- <bean
-	class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
-	<bean
-		class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" /> -->
+ 	<context:spring-configured />
+	<context:component-scan base-package="org.endeios.security.vaadin" />
+ 	
+ 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
  	
  	<!--  COSE DB -->
  	<bean class="org.apache.tomcat.dbcp.dbcp.BasicDataSource" id="securityDS">
@@ -63,7 +64,7 @@
 	
 	<!-- COSE JSP -->
 	
-	<mvc:default-servlet-handler />
+	<!-- <mvc:default-servlet-handler />
 	<mvc:resources location="css/**" mapping="css/" />
 	<mvc:resources location="js/**" mapping="js/" />
 	<mvc:resources location="img/**" mapping="img/" />
@@ -78,7 +79,7 @@
 		</property>
 		<property name="defaultViews">
 			<list>
-				<!-- JSON View -->
+				JSON View
 				<bean
 					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
 			</list>
@@ -91,7 +92,7 @@
 			value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
-	</bean>
+	</bean> -->
 	
 	<!-- Servizi -->
 	
@@ -111,5 +112,5 @@
 	</bean>
 	<!-- Controllers -->
 	
-	<bean class="org.endeios.security.controller.LogEntryController" id="logEntryController"></bean>
+	<!-- <bean class="org.endeios.security.controller.LogEntryController" id="logEntryController"></bean> -->
 </beans>
