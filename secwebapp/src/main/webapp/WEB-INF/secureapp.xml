@@ -20,10 +20,11 @@
  	<!-- COSE BEAN -->
  	<context:property-placeholder location="classpath:db.properties"/>
  	<context:annotation-config/>
- 	<!-- <bean
-	class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
-	<bean
-		class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" /> -->
+ 	<context:spring-configured />
+	<context:component-scan base-package="org.endeios.security.vaadin" />
+ 	
+ 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
  	
  	<!--  COSE DB -->
  	<bean class="org.apache.tomcat.dbcp.dbcp.BasicDataSource" id="securityDS">
