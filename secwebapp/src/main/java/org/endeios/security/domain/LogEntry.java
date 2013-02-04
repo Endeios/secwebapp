@@ -18,12 +18,12 @@ public class LogEntry {
 	private String zone;
 
 	public LogEntry() {
-		this.uuid = UUID.randomUUID();
+		this.setUuid(UUID.randomUUID());
 		this.time = new Date();
 	}
 
 	public LogEntry(String event, String zone) {
-		this.uuid = UUID.randomUUID();
+		this.setUuid(UUID.randomUUID());
 		this.time = new Date();
 		this.event = event;
 		this.zone = zone;
@@ -47,6 +47,14 @@ public class LogEntry {
 
 	public void setZone(String zone) {
 		this.zone = zone;
+	}
+
+	public UUID getUuid() {
+		return uuid;
+	}
+
+	private void setUuid(UUID uuid) {
+		this.uuid = uuid;
 	}
 
 }

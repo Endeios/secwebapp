@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Configurable;
 import com.vaadin.Application;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Window;
 
@@ -32,7 +33,9 @@ public class SecWebApp extends Application {
 		sch = new SpringContextHelper(this);
 		logEntryService = (LogEntryService) sch.getBean("logEntryService");
 		setMainWindow(mainWindow);
-		mainWindow.addComponent(new SecWebAppMainWindow());
+		
+		SecWebAppMainWindow swa = new SecWebAppMainWindow(logEntryService);
+		mainWindow.addComponent(swa );
 		mainWindow.addComponent(new Label(logEntryService.getAllEntries()+""));
 	}
 
