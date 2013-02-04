@@ -36,7 +36,6 @@ public class SecWebApp extends Application {
 		
 		SecWebAppMainWindow swa = new SecWebAppMainWindow(logEntryService);
 		mainWindow.addComponent(swa );
-		mainWindow.addComponent(new Label(logEntryService.getAllEntries()+""));
 	}
 
 }
