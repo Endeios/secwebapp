@@ -14,7 +14,7 @@ import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Window;
 
-//@Configurable(preConstruction = true,dependencyCheck=true)
+@Configurable(preConstruction = true,dependencyCheck=true)
 public class SecWebApp extends Application {
 
 	/**
@@ -22,7 +22,7 @@ public class SecWebApp extends Application {
 	 */
 	private static final long serialVersionUID = -4439997529796272044L;
 	
-	//@Autowired(required=true)
+	@Autowired(required=true)
 	private LogEntryService logEntryService;
 
 	private SpringContextHelper sch;
@@ -31,7 +31,7 @@ public class SecWebApp extends Application {
 	public void init() {
 		final Window mainWindow = new Window("Sec Web  Application");
 		sch = new SpringContextHelper(this);
-		logEntryService = (LogEntryService) sch.getBean("logEntryService");
+		//logEntryService = (LogEntryService) sch.getBean("logEntryService");
 		setMainWindow(mainWindow);
 		
 		SecWebAppMainWindow swa = new SecWebAppMainWindow(logEntryService);
