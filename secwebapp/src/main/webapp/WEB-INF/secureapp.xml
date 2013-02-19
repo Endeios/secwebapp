@@ -65,6 +65,7 @@
 	<mvc:resources location="img/**" mapping="img/" />
 	<mvc:view-controller path="/" view-name="index" />
 	<mvc:annotation-driven />
+	<bean class="org.springframework.oxm.castor.CastorMarshaller" id="castorMarshaller" />
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="mediaTypes">
@@ -81,7 +82,7 @@
 				<!-- XML View -->
 				<bean class="org.springframework.web.servlet.view.xml.MarshallingView">
 					<constructor-arg>
-						<bean class="org.springframework.oxm.castor.CastorMarshaller" />
+						<ref bean="castorMarshaller" />
 					</constructor-arg>
 				</bean>
 			</list>
