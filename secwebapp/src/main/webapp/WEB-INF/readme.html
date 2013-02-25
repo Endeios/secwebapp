@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Activate Load Time Weaving!</title>
+</head>
+<body>
+<h2>Step 1 add good libraries to tomcat/lib</h2>
+<p>
+	spring-instrument-tomcat-&lt;version&gt;.jar
+</p>
+<h2>Step 2 modify server.xml</h2>
+	<pre>
+		<Context docBase="secwebapp" path="/secwebapp-vaadin" reloadable="true" source="org.eclipse.jst.jee.server:secwebapp">
+      	<Loader loaderClass="org.springframework.instrument.classloading.tomcat.TomcatInstrumentableClassLoader"/>
+      </Context>
+	</pre>
+</body>
+</html>
