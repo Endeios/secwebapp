@@ -208,6 +208,21 @@
 			<artifactId>batik-svggen</artifactId>
 			<version>1.7</version>
 		</dependency>
+		<dependency>
+			<groupId>org.specs2</groupId>
+			<artifactId>specs2_2.10</artifactId>
+			<version>1.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scalaz</groupId>
+			<artifactId>scalaz-full_2.10</artifactId>
+			<version>6.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scalatest</groupId>
+			<artifactId>scalatest_2.10.0</artifactId>
+			<version>2.0.M5</version>
+		</dependency>
 	</dependencies>
 
 	<properties>
@@ -226,6 +241,14 @@
 					<showDeprecation>true</showDeprecation>
 					<showWarnings>true</showWarnings>
 					<fork>true</fork>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<configuration>
+					<sourceDir>src/main/scala</sourceDir>
+					<testSourceDir>src/test/scala</testSourceDir>
 				</configuration>
 			</plugin>
 		</plugins>

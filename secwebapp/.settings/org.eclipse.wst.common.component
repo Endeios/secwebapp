@@ -4,6 +4,8 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/scala"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/scala"/>
         <property name="context-root" value="secwebapp"/>
         <property name="java-output-path" value="/secwebapp/target/classes"/>
     </wb-module>

@@ -101,6 +101,8 @@
 
 	<bean class="org.endeios.security.service.LogEntryService" id="logEntryService"
 		autowire="byName"></bean>
+	<bean class="org.endeios.security.service.EchoService" id="echoService"
+		autowire="byName"></bean>
 	<bean id="jacksonObjectMapper" class="org.codehaus.jackson.map.ObjectMapper" />
 	<bean id="jacksonSerializationConfig" class="org.codehaus.jackson.map.SerializationConfig"
 		factory-bean="jacksonObjectMapper" factory-method="getSerializationConfig" />
@@ -118,4 +120,5 @@
 
 	<bean class="org.endeios.security.controller.LogEntryController"
 		id="logEntryController"></bean>
+
 </beans>
