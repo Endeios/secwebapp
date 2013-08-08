@@ -78,7 +78,9 @@
 			<list>
 				<!-- JSON View -->
 				<bean
-					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" >
+						<property name="extractValueFromSingleKeyModel" value="true"/>
+					</bean>
 				<!-- XML View -->
 				<bean class="org.springframework.web.servlet.view.xml.MarshallingView">
 					<constructor-arg>
