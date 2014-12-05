@@ -9,3 +9,5 @@ Just a playground when i feel the urge for a small app
 -Has db persistence
 -Has some decent javascript
 -Built on twitter bootstrap
+
+Updated to use spring 4 
