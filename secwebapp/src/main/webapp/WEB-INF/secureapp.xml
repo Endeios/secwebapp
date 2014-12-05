@@ -68,6 +68,11 @@
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="contentNegotiationManager" ref="cnManager"></property>
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.endeios.security.controller.JsonViewResolver" autowire="byType"/>
+			</list>
+		</property>
 	</bean>
 	<bean class="org.springframework.oxm.castor.CastorMarshaller" id="castorMarshaller" />
 	<!-- http://spring.io/blog/2013/06/03/content-negotiation-using-views -->
@@ -99,7 +104,7 @@
 	<bean class="org.endeios.security.service.EchoService" id="echoService"
 		autowire="byName"></bean>
 		
-	<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+	<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" id="mappingJackson2JsonView">
 		<property name="objectMapper" ref="jacksonObjectMapper"/>
 	</bean>
 	<bean id="jacksonObjectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
