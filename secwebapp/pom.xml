@@ -227,7 +227,7 @@
 
 	<properties>
 		<activity-version>5.11</activity-version>
-		<springframework-version>3.1.1.RELEASE</springframework-version>
+		<springframework-version>4.1.2.RELEASE</springframework-version>
 		<scala.version>2.11.4</scala.version>
 	</properties>
 	<url>https://github.com/Endeios/secwebapp/</url>
