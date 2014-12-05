@@ -65,29 +65,22 @@
 	<mvc:resources location="img/**" mapping="img/" />
 	<mvc:view-controller path="/" view-name="index" />
 	<mvc:annotation-driven />
-	<bean class="org.springframework.oxm.castor.CastorMarshaller" id="castorMarshaller" />
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="contentNegotiationManager" ref="cnManager"></property>
+	</bean>
+	<bean class="org.springframework.oxm.castor.CastorMarshaller" id="castorMarshaller" />
+	<!-- http://spring.io/blog/2013/06/03/content-negotiation-using-views -->
+	<bean
+		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean"
+		id="cnManager">
+		<property name="defaultContentType" value="text/html"></property>
+		<property name="ignoreAcceptHeader" value="false"></property>
 		<property name="mediaTypes">
 			<map>
 				<entry key="json" value="application/json" />
 				<entry key="xml" value="application/xml" />
 			</map>
-		</property>
-		<property name="defaultViews">
-			<list>
-				<!-- JSON View -->
-				<bean
-					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" >
-						<property name="extractValueFromSingleKeyModel" value="true"/>
-					</bean>
-				<!-- XML View -->
-				<bean class="org.springframework.web.servlet.view.xml.MarshallingView">
-					<constructor-arg>
-						<ref bean="castorMarshaller" />
-					</constructor-arg>
-				</bean>
-			</list>
 		</property>
 	</bean>
 
@@ -106,6 +99,7 @@
 	<bean class="org.endeios.security.service.EchoService" id="echoService"
 		autowire="byName"></bean>
 	<bean id="jacksonObjectMapper" class="org.codehaus.jackson.map.ObjectMapper" />
+	<!-- Jackson global config -->
 	<bean id="jacksonSerializationConfig" class="org.codehaus.jackson.map.SerializationConfig"
 		factory-bean="jacksonObjectMapper" factory-method="getSerializationConfig" />
 	<bean
