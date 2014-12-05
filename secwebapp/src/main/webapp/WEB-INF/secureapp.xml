@@ -98,17 +98,21 @@
 		autowire="byName"></bean>
 	<bean class="org.endeios.security.service.EchoService" id="echoService"
 		autowire="byName"></bean>
-	<bean id="jacksonObjectMapper" class="org.codehaus.jackson.map.ObjectMapper" />
+		
+	<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+		<property name="objectMapper" ref="jacksonObjectMapper"/>
+	</bean>
+	<bean id="jacksonObjectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
 	<!-- Jackson global config -->
-	<bean id="jacksonSerializationConfig" class="org.codehaus.jackson.map.SerializationConfig"
+	<bean id="jacksonSerializationConfig" class="com.fasterxml.jackson.databind.SerializationConfig"
 		factory-bean="jacksonObjectMapper" factory-method="getSerializationConfig" />
 	<bean
 		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
 		<property name="targetObject" ref="jacksonSerializationConfig" />
-		<property name="targetMethod" value="setSerializationInclusion" />
+		<property name="targetMethod" value="withSerializationInclusion" />
 		<property name="arguments">
 			<list>
-				<value type="org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion">NON_DEFAULT</value>
+				<value type="com.fasterxml.jackson.annotation.JsonInclude.Include">NON_DEFAULT</value>
 			</list>
 		</property>
 	</bean>
