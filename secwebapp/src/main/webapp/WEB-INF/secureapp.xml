@@ -71,10 +71,14 @@
 		<property name="viewResolvers">
 			<list>
 				<bean class="org.endeios.security.controller.JsonViewResolver" autowire="byType"/>
+				<bean class="org.endeios.security.controller.XMLViewResolver" autowire="byType"/>
 			</list>
 		</property>
 	</bean>
 	<bean class="org.springframework.oxm.castor.CastorMarshaller" id="castorMarshaller" />
+	<bean class="org.springframework.web.servlet.view.xml.MarshallingView" id="marshallingView">
+		<property name="marshaller" ref="castorMarshaller" />
+	</bean>
 	<!-- http://spring.io/blog/2013/06/03/content-negotiation-using-views -->
 	<bean
 		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean"
